@@ -1,0 +1,6 @@
+@Spendle.API_HostAddress = http://localhost:5001
+
+GET {{Spendle.API_HostAddress}}/
+Accept: application/json
+
+###

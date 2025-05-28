@@ -1,0 +1,31 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/project files
+.vscode/
+.idea/
+
+# Ignore build artifacts
+bin/
+obj/
+dist/
+spendle-client/dist/
+
+# Ignore node dependencies
+node_modules/
+spendle-client/node_modules/
+
+# Ignore environment and temp files
+.env
+*.log
+*.tmp
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET launch profiles
+Properties/launchSettings.json
