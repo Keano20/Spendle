@@ -8,4 +8,9 @@
     <ItemGroup>
         <None Include="**/*" Exclude="node_modules/**/*;bin/**/*;obj/**/*" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="src\layouts\" />
+      <Folder Include="src\services\" />
+    </ItemGroup>
 </Project>
