@@ -1,3 +1,11 @@
 import React from 'react';
 
-export default function RegisterPage() {}
+function RegisterPage() {
+    return (
+        <div>
+            <h1>Register</h1>
+        </div>
+    );
+}
+
+export default RegisterPage;
