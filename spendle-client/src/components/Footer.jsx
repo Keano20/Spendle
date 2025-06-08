@@ -1,14 +1,7 @@
 function Footer() {
     return (
-        <footer style={{
-            backgroundColor: '#17B890',
-            padding: '1rem',
-            textAlign: 'center',
-            fontSize: '0.9rem',
-            color: '#555',
-            marginTop: 'auto'
-        }}>
-            <p>© {new Date().getFullYear()} Spendle. All rights reserved.</p>
+        <footer className="bg-gray-100 text-center p-4 text-sm mt-auto">
+            <p className="text-gray-600">© {new Date().getFullYear()} Spendle</p>
         </footer>
     );
 }

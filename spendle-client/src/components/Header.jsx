@@ -3,39 +3,16 @@ import { Link } from 'react-router-dom';
 
 function Header() {
     return (
-        <header style={styles.header}>
-            <h1 style={styles.logo}>Spendle</h1>
-            <nav style={styles.nav}>
-                <Link to="/" style={styles.link}>Home</Link>
-                <Link to="/login" style={styles.link}>Login</Link>
-                <Link to="/register" style={styles.link}>Register</Link>
+        <header className="bg-gray-800 text-white p-4 shadow-md">
+            <nav className="flex justify-between items-center">
+                <h1 className="text-2xl font-semibold">Spendle</h1>
+                <div className="space-x-4">
+                    <Link to="/login" className="hover:text-yellow-300">Login</Link>
+                    <Link to="/register" className="hover:text-yellow-300">Register</Link>
+                </div>
             </nav>
         </header>
     );
 }
-
-const styles = {
-    header: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1rem 2rem',
-        backgroundColor: '#17B890'
-    },
-    logo: {
-        margin: 0,
-        fontSize: '1.5rem',
-        color: '#333',
-    },
-    nav: {
-        display: 'flex',
-        gap: '1rem',
-    },
-    link: {
-        textDecoration: 'none',
-        color: '#0077cc',
-        fontWeight: '500',
-    }
-};
 
 export default Header;
