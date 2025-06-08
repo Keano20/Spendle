@@ -20,8 +20,7 @@ const styles = {
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '1rem 2rem',
-        backgroundColor: '#f4f4f4',
-        borderBottom: '1px solid #ddd',
+        backgroundColor: '#17B890'
     },
     logo: {
         margin: 0,
