@@ -1,3 +1,6 @@
+using Spendle.API.Config;
+using Spendle.API.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Services
@@ -16,7 +19,16 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.Configure<MongoDbSettings>(
+    builder.Configuration.GetSection("MongoDbSettings"));
+builder.Services.AddSingleton<MongoDbService>();
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var mongoCheck = scope.ServiceProvider.GetRequiredService<MongoDbService>();
+}
 
 // Middleware
 if (app.Environment.IsDevelopment())
