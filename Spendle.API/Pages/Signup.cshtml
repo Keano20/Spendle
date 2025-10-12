@@ -1,0 +1,91 @@
+@page
+@model Spendle.API.Pages.Signup
+
+@{
+    ViewData["Title"] = "Sign Up - Spendle";
+}
+
+<section class="auth-container">
+    <h2>Create Your Spendle Account</h2>
+    <form method="post">
+        <input type="text" name="Email" placeholder="Email address" required />
+        <input type="password" name="Password" placeholder="Password" required />
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="/Login">Log in</a></p>
+    <a href="/" class="back-btn">← Back to Homepage</a>
+</section>
+
+<style>
+    body {
+        font-family: system-ui, sans-serif;
+        background-color: #F3F3F4;
+        color: #363635;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .auth-container {
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #00BFB2;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+    }
+
+    button {
+        background-color: #00BFB2;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #009e93;
+    }
+    
+    .back-btn {
+        display: inline-block;
+        margin-top: 20px;
+        color: #363635;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+        color: #00BFB2;
+    }
+
+    a {
+        color: #00BFB2;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>

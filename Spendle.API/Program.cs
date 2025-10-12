@@ -5,26 +5,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Services
 builder.Services.AddControllers();
+builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Added CORS to allow frontend (Vite) access
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policy =>
-    {
-        policy.WithOrigins("http://localhost:5000") // frontend port
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-    });
-});
-
+// Mongo Config
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("MongoDbSettings"));
 builder.Services.AddSingleton<MongoDbService>();
 
 var app = builder.Build();
 
+// Mongo connection check
 using (var scope = app.Services.CreateScope())
 {
     var mongoCheck = scope.ServiceProvider.GetRequiredService<MongoDbService>();
@@ -39,10 +31,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors();
-
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapRazorPages();
 
 app.Run();

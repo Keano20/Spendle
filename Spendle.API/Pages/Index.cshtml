@@ -1,0 +1,33 @@
+@page
+@model Spendle.API.Pages.Index
+
+@{
+    ViewData["Title"] = "Home - Spendle";
+}
+
+<section style="text-align:center; margin-top:100px;">
+    <h1>Welcome to Spendle</h1>
+    <p>Track your income, expenses, and net worth — all in one place.</p>
+    <a href="/Login" class="btn">Login</a>
+    <a href="/Signup" class="btn">Sign Up</a>
+</section>
+
+<style>
+    body {
+        font-family: system-ui, sans-serif;
+        background-color: #f3f3f4;
+        color: #363635;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: #00BFB2;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+    }
+    .btn:hover {
+        background-color: #009e93;
+    }
+</style>

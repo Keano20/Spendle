@@ -9,6 +9,6 @@ public class StatusController : ControllerBase
     [HttpGet]
     public IActionResult Get()
     {
-        return Ok("Spendle API is running!");
+        return BadRequest() ;
     }
 }
