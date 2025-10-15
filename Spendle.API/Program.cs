@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Services
 builder.Services.AddControllers();
 builder.Services.AddRazorPages();
+builder.Services.AddSession();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -31,6 +32,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseSession();
 app.UseAuthorization();
 
 app.MapControllers();
