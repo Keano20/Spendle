@@ -8,8 +8,12 @@
 <section class="auth-container">
     <h2>Create Your Spendle Account</h2>
     <form method="post">
-        <input type="text" name="Email" placeholder="Email address" required />
-        <input type="password" name="Password" placeholder="Password" required />
+        @Html.AntiForgeryToken()
+        <input name="NewUser.Email" placeholder="Email" required/>
+        <input name="NewUser.HashedPassword" type="password" placeholder="Password" required/>
+        <input name="NewUser.FirstName" placeholder="First Name"/>
+        <input name="NewUser.LastName" placeholder="Last Name"/>
+        <input name="NewUser.Username" placeholder="Username"/>
         <button type="submit">Sign Up</button>
     </form>
     <p>Already have an account? <a href="/Login">Log in</a></p>

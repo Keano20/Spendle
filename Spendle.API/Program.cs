@@ -12,7 +12,7 @@ builder.Services.AddSwaggerGen();
 
 // Mongo Config
 builder.Services.Configure<MongoDbSettings>(
-    builder.Configuration.GetSection("MongoDbSettings"));
+    builder.Configuration.GetSection("ConnectionStrings"));
 builder.Services.AddSingleton<MongoDbService>();
 
 var app = builder.Build();

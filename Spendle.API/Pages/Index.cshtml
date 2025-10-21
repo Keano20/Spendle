@@ -7,9 +7,18 @@
 
 <section style="text-align:center; margin-top:100px;">
     <h1>Welcome to Spendle</h1>
-    <p>Track your income, expenses, and net worth — all in one place.</p>
-    <a href="/Login" class="btn">Login</a>
-    <a href="/Signup" class="btn">Sign Up</a>
+
+    @if (Model.LoggedEmail is not null)
+    {
+        <p>You’re logged in as <strong>@Model.LoggedEmail</strong></p>
+        <form method="post" action="/Logout">
+            <button type="submit" class="btn">Logout</button>
+        </form>
+    }
+    else
+    {
+        <p><a href="/Login" class="btn">Login</a> or <a href="/Signup" class="btn">Sign Up</a></p>
+    }
 </section>
 
 <style>

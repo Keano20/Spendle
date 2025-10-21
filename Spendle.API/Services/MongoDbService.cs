@@ -2,6 +2,7 @@ using Spendle.API.Config;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using Spendle.API.Models;
 
 namespace Spendle.API.Services;
 
@@ -25,5 +26,17 @@ public class MongoDbService
         }
     }
     public  IMongoDatabase GetDatabase() => _database;
+    
+    public async Task CreateUserAsync(User user)
+    {
+        var users = _database.GetCollection<User>("Users");
+        await users.InsertOneAsync(user);
+    }
+    
+    public async Task<User?> GetUserByEmailAsync(string email)
+    {
+        var users = _database.GetCollection<User>("Users");
+        return await users.Find(u => u.Email == email).FirstOrDefaultAsync();
+    }
 
 }
