@@ -31,7 +31,7 @@ namespace Spendle.API.Pages
             }
 
             HttpContext.Session.SetString("UserEmail", user.Email);
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Dashboard");
         }
     }
 }
