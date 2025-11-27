@@ -15,6 +15,22 @@
     </form>
     <p>Don't have an account? <a href="/Signup">Sign up</a></p>
     <a href="/" class="back-btn">← Back to Homepage</a>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div id="errorPopup" class="popup">
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <p>@error.ErrorMessage</p>
+            }
+        </div>
+
+        <script>
+            const popup = document.getElementById("errorPopup");
+            popup.style.display = "block";
+            setTimeout(() => popup.style.display = "none", 5000);
+        </script>
+    }
 </section>
 
 <style>
@@ -88,5 +104,17 @@
 
     a:hover {
         text-decoration: underline;
+    }
+
+    .popup {
+        display: none;
+        background-color: #ff4d4f;
+        color: white;
+        padding: 12px;
+        margin-top: 15px;
+        border-radius: 6px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        animation: fadein 0.3s ease;
     }
 </style>
