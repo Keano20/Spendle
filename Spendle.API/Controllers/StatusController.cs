@@ -9,6 +9,6 @@ public class StatusController : ControllerBase
     [HttpGet]
     public IActionResult Get()
     {
-        return BadRequest() ;
+        return Ok() ;
     }
 }

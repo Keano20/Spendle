@@ -1,5 +1,5 @@
-using Spendle.API.Config;
-using Spendle.API.Services;
+using Microsoft.EntityFrameworkCore;
+using Spendle.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,18 +10,11 @@ builder.Services.AddSession();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Mongo Config
-builder.Services.Configure<MongoDbSettings>(
-    builder.Configuration.GetSection("ConnectionStrings"));
-builder.Services.AddSingleton<MongoDbService>();
+// Database Connection (SQL Server)
+builder.Services.AddDbContext<SpendleDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
-
-// Mongo connection check
-using (var scope = app.Services.CreateScope())
-{
-    var mongoCheck = scope.ServiceProvider.GetRequiredService<MongoDbService>();
-}
 
 // Middleware
 if (app.Environment.IsDevelopment())
