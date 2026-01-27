@@ -1,6 +1,6 @@
 # Spendle
 
-**Spendle** is a modern finance tracker web application that helps users manage their income, expenses, assets, and debts. Built with a C# (ASP.NET Core) backend, Spendle allows users to log financial data and view their net worth in real-time.
+**Spendle** is a modern finance tracker web application that helps users manage their income, expenses, assets, and debts. Built with a **C# (ASP.NET Core)** backend, Spendle allows users to log financial data and view their net worth in real-time.
 
 🚧 **This project is currently under active development.** Expect frequent changes, incomplete features, and ongoing improvements.
 
