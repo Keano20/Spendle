@@ -10,7 +10,7 @@
 - **Language**: C#
 
 #### Data & Infrastructure:
-- **Database**: Microsoft SQL Server
+- **Database**: Microsoft SQL Server (Azure SQL Database)
 - **ORM**: Entity Framework Core 8.0
 - **Containerization**: Docker
 - 
