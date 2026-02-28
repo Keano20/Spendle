@@ -8,7 +8,7 @@ namespace Spendle.API.Pages
         public IActionResult OnPost()
         {
             HttpContext.Session.Clear();
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Login");
         }
     }
 }
