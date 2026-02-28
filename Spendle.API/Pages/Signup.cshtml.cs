@@ -19,14 +19,14 @@ public class Signup : PageModel
     [BindProperty]
     public User NewUser { get; set; } = new();
 
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync(string password)
     {
         if (!ModelState.IsValid)
         {
             return Page();
         }
 
-        // 1. Check if user exists using SQL
+        // Check if user exists using SQL
         var existingUser = await _context.Users
             .FirstOrDefaultAsync(u => u.Email == NewUser.Email);
 
@@ -36,10 +36,10 @@ public class Signup : PageModel
             return Page();
         }
 
-        // 2. Hash password
-        NewUser.HashedPassword = PasswordHelper.HashPassword(NewUser.HashedPassword);
+        // Hash password
+        NewUser.HashedPassword = PasswordHelper.HashPassword(password);
 
-        // 3. Save to SQL Database
+        // Save to SQL Database
         _context.Users.Add(NewUser);
         await _context.SaveChangesAsync();
 
