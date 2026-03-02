@@ -23,18 +23,18 @@ namespace Spendle.API.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            // 1. Find user in SQL
+            // Find user in SQL
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.Email == Email);
 
-            // 2. Verify Password
+            // Verify Password
             if (user == null || !PasswordHelper.VerifyPassword(Password, user.HashedPassword))
             {
                 ModelState.AddModelError(string.Empty, "Invalid email or password.");
                 return Page();
             }
 
-            // 3. Log them in (Session)
+            // Log them in (Session)
             HttpContext.Session.SetString("UserEmail", user.Email);
             HttpContext.Session.SetString("Username", user.Username);
             

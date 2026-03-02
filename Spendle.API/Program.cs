@@ -12,9 +12,26 @@ builder.Services.AddSwaggerGen();
 
 // Database Connection (SQL Server)
 builder.Services.AddDbContext<SpendleDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        sqlOptions => sqlOptions.EnableRetryOnFailure()
+    ));
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<SpendleDbContext>();
+        context.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("An error occurred creating the DB: " + ex.Message);
+    }
+}
 
 // Middleware
 if (app.Environment.IsDevelopment())
