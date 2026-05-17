@@ -1,32 +1,18 @@
-# Ignore system files
+# BACKEND: C# / .NET
+[Bb]in/
+[Oo]bj/
+.idea/
+*.user
+appsettings.Development.json
+
+# FRONTEND: React / Vite
+node_modules/
+spendle-client/dist/
+spendle-client/dist-ssr/
+spendle-client/*.local
+.env
+
+# OS / ENVIRONMENT
 .DS_Store
 Thumbs.db
-
-# Ignore IDE/project files
-.vscode/
-.idea/
-
-# Ignore build artifacts
-bin/
-obj/
-dist/
-spendle-client/dist/
-
-# Ignore node dependencies
-node_modules/
-spendle-client/node_modules/
-
-# Ignore environment and temp files
-.env
-*.log
-*.tmp
-Spendle.API/appsettings.json
-
-# Ignore user-specific files
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-
-# ASP.NET launch profiles
-Properties/launchSettings.json
+Spendle.API/appsettings.Development.json
